@@ -1,164 +1,533 @@
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hariom Tatsat</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" type="image/x-icon" href="assets/HT.png">
 </head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        font-family: 'poppins', sans-serif;
-        box-sizing: border-box;
-
-    }
-
-    .container {
-        width: 100vw;
-        height: 100vh;
-        background-image: url(https://i.postimg.cc/bvVb53Lq/background.png);
-        background-position: center;
-        background-size: cover;
-        padding: 0 8%;
-
-    }
-
-    .logo {
-        width: 120px;
-        padding: 20px 0;
-        cursor: pointer;
-
-    }
-
-    .content {
-        top: 50%;
-        position: absolute;
-        transform: translateY(-50%);
-        color: #fff;
-
-    }
-
-    .content h1 {
-        font-size: 64px;
-        font-weight: 600;
-    }
-
-    .content h1 span {
-        color: #ff3753;
-    }
-
-    .content button {
-        background: transparent;
-        border: 2px solid #fff;
-        outline: none;
-        padding: 12px 25px;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        margin-top: 30px;
-        cursor: pointer;
-
-    }
-
-    .content button img {
-        width: 15px;
-        margin-left: 10px;
-    }
-
-    .launch-time {
-        display: flex;
-    }
-
-    .launch-time div {
-        flex-basis: 200px;
-
-    }
-
-    .launch-time div p {
-        font-size: 60px;
-        margin-bottom: -4px;
-
-    }
-
-    .rocket {
-        width: 250px;
-        position: absolute;
-        right: 10%;
-        bottom: 0;
-        animation: rocket 4s linear infinite;
-
-    }
-
-    @keyframes rocket {
-        0% {
-            bottom: 0;
-            opacity: 0;
-        }
-
-        100% {
-            bottom: 105%;
-            opacity: 1;
-        }
-    }
-</style>
 
 <body>
-    <div class="container">
-        <div class="content">
-            <h1>Website Is Under Maintenance</h1>
-            <h2 style="color:crimson;">We're <span>Launching</span> Soon</h2>
-            <div class="launch-time">
-                <div>
-                    <p id="">00</p>
-                    <span>Days</span>
-                </div>
-                <div>
-                    <p id="S">05</p>
-                    <span>Hours</span>
-                </div>
-                <div>
-                    <p id="minutes">30</p>
-                    <span>Minutes</span>
-                </div>
-                <div>
-                    <p id="seconds">00</p>
-                    <span>Seconds</span>
-                </div>
-            </div>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+      text-decoration: none;
+      list-style: none;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      box-shadow: 0 4px 20px hsla(0, 0%, 98%, 0.1);
+      background-color: #fff;
+      z-index: 1;
+    }
+
+    nav {
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 30px;
+    }
+
+    .logo a {
+      font-size: 24px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .logo a span {
+      color: #8739fa;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .menu a {
+      display: block;
+      padding: 7px 15px;
+      font-size: 17px;
+      font-weight: 500;
+      transition: 0.2s all ease-in-out;
+      color: black;
+    }
+
+    .menu-icon {
+      display: none;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    #menu-toggle:checked~.menu {
+      transform: scale(1, 1);
+    }
+
+    @media only screen and (max-width: 950px) {
+      .menu {
+        flex-direction: column;
+        background-color: #fff;
+        align-items: start;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+        transform: scale(1, 0);
+        transform-origin: top;
+        transition: transform 0.3s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      }
+
+      .menu a {
+        margin-left: 12px;
+      }
+
+      .menu li {
+        margin-bottom: 10px;
+      }
+
+      .menu-icon {
+        display: block;
+        color: black;
+        font-size: 28px;
+        cursor: pointer;
+      }
+    }
+  </style>
+  <header class="header">
+    <nav>
+      <div class="logo">
+      </div>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+      <ul class="menu">
+        <li><a href="">Home</a></li>
+        <li><a href="#CT">Corporate Trainings</a></li>
+        <li><a href="#MM">Media Mentions</a></li>
+        <li><a href="#featured-talks">Podcasts</a></li>
+        <li><a href="#one">Books & Courses</a></li>
+        <style>
+          /* Custom CSS for a "Contact Us" button */
+          .btn-contact {
+            /* Adjust these styles as needed */
+            background-color: rgb(250, 242, 11);
+            /* Green background color */
+            color: white;
+            /* Text color */
+            border: none;
+            /* Remove button border */
+            margin: 5px;
+            /* Adjust padding to suit */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            /* Rounded corners */
+            cursor: pointer;
+          }
+        </style>
+        <!-- href="mailto:Quanturf.finance@gmail.com" -->
+        <!-- Your HTML button element -->
+        <button type="button" class="btn btn-contact"> <a href="mailto:Quanturf.finance@gmail.com"
+            target="_blank">Contact
+            Us</a></button>
+
+      </ul>
+    </nav>
+  </header>
+
+  <!-- idea: have a javascript animated loss function converging in the header? :p -->
+  <div id="dhead" class="container">
+    <div class="row">
+      <div id="dpic">
+        <img src="assets/hariom.jpeg" class="ppic" />
+      </div>
+      <div id="ddesc">
+        <h1>Hariom Tatsat</h1>
+        <h2>Machine Learning, AI and Fintech enthusiast 🧠🤖💥</h2>
+        <div id="dico">
+          <a href="https://github.com/tatsath" target="_blank"><img src="assets/git.png" class="iico" /></a>
+          <a href="https://www.linkedin.com/in/hariomtatsat/" target="_blank"><img src="assets/li.png"
+              class="iico" /></a>
         </div>
-        <img src="https://i.postimg.cc/PfwZ6bDk/rocket.png" class="rocket">
+      </div>
     </div>
+  </div>
+
+  <hr>
+
+  <div id="history" class="container">
+
+    <div class="entry row">
+      <div class="timespan">
+        2017 - ..
+      </div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+        <img src="assets/barclays.jpeg" />
+      </div>
+      <div class="desc">
+        <h3>Vice President at Barclays Investment Bank</h3>
+        <p>
+          With over 6 years of experience in model development and
+          implementation using statistical and machine learning techniques. I am currently based in the Greater New York
+          City Area, contributing to data-driven decision-making in the financial industry.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry row">
+      <div class="timespan">
+        2014 - 16
+      </div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+        <img src="assets/FAB.jpeg" />
+      </div>
+      <div class="desc">
+        <h3>Quantitative Analyst at First Abu Dhabi Bank (FAB)</h3>
+        <p>
+          I specialized in the pricing and hedging of exotic
+          rates and credit instruments. During my tenure, I contributed to the bank's efforts in understanding and
+          managing complex financial products, enhancing its capabilities in risk management and pricing strategies. My
+          role involved in-depth quantitative analysis and modeling to support informed financial decision-making.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry row">
+      <div class="timespan">
+        2012 - 14
+      </div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+        <img src="assets/RBS.jpeg" />
+      </div>
+      <div class="desc">
+        <h3> Senior Associate at the Royal Bank of Scotland</h3>
+        <p>
+          I specialized in Counterparty Credit Risk and CVA Quant (Credit Value Adjustment Quant). During my tenure, I
+          played a key role in assessing and managing counterparty credit risk, contributing to the bank's risk
+          management strategies. My responsibilities included quantitative analysis and modeling to evaluate and
+          mitigate credit risk exposure.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry row">
+      <div class="timespan">
+        2010 - 12
+      </div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+        <img src="assets/nomura.jpeg" />
+      </div>
+      <div class="desc">
+        <h3>Associate at Nomura</h3>
+        <p>
+          I focused on the pricing and hedging of correlation-based credit derivatives trading. This encompassed a range
+          of financial products, including default baskets, CDO tranches, and CDS Indices. My work contributed to the
+          bank's understanding and management of complex credit derivatives, enhancing risk assessment and pricing
+          strategies.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry row">
+      <div class="timespan">
+        2009 - 10
+      </div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+        <img src="assets/nyk.jpeg" />
+      </div>
+      <div class="desc">
+        <h3>Analyst at Nykredit - 7N Consulting Pvt. Ltd.</h3>
+        <p>
+          I focused on the modeling of interest rate instruments. My responsibilities included quantitative analysis and
+          modeling related to interest rate products, contributing to the understanding and management of these
+          financial instruments.
+        </p>
+      </div>
+    </div>
+
+    <div class="entry row">
+      <div class="timespan">
+        2007 - 2009
+      </div>
+      <div class="ico">
+        <div class="entry-dot"></div>
+        <img src="assets/genpact.jpeg" />
+      </div>
+      <div class="desc">
+        <h3> Analyst at Headstrong - Credit Agricole</h3>
+        <p>
+          I specialized in modeling Fixed Income and FX (Foreign Exchange) instruments. During my two-year tenure, I was
+          involved in quantitative analysis and modeling of these financial products, contributing to the bank's
+          understanding and management of fixed income and foreign exchange instruments.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="/* background-color: #eee; */padding-top: 1px;margin-top: 10px;" id="CT">
+    <div class="container">
+      <div class="ctitle">Corporate Trainings</div>
+      <div class="row">
+
+        <div class="card">
+          <a href="https://masterclass.economictimes.indiatimes.com/ai-generative-ai-finance-services-hariom-tatsat">
+            <div class="ccimg"><img src="assets/CT1.png" target="_blank" /></div>
+          </a>
+          <div class="cdesc">AI and Generative AI for Finance Masterclass (Online Interactive Workshop)
+          </div>
+        </div>
+
+        <div class="card">
+          <a
+            href="https://www.careers360.com/colleges/indian-school-of-business-hyderabad-campus/advanced-programme-in-leadership-and-digital-innovation-in-finance-certification-course">
+            <div class="ccimg"><img src="assets/ISB.jpeg" target="_blank" /></div>
+          </a>
+          <div class="cdesc">Advanced Programme in Leadership and Digital Innovation
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div style="/* background-color: #eee; */padding-top: 1px;margin-top: 10px;" id="MM">
+    <div class="container">
+      <div class="ctitle">Media Mentions</div>
+      <div class="row">
+
+        <div class="card">
+          <a href="https://thechicagojournal.com/hariom-tatsat-a-quant-striving-to-bridge-the-worlds-of-finance-and-machine-learning/"
+            target="_blank">
+            <div class="ccimg"><img src="assets/speaker1.png" /></div>
+          </a>
+          <div class="cdesc">A Quant Striving to Bridge the Worlds of Finance and ML</div>
+        </div>
+
+
+        <div class="card">
+          <a href="https://nywire.com/up-and-close-interview-with-hariom-tatsat-author-and-expert-in-ai-in-finance/"
+            target="_blank">
+            <div class="ccimg"><img src="assets/speaker5.png" /></div>
+          </a>
+          <div class="cdesc">Up and Close Interview with Hariom Tatsat</div>
+        </div>
+
+
+        <div class="card">
+          <a href="https://usinsider.com/bridging-the-gap-between-machine-learning-and-finance-expert-insights-from-hariom-tatsat/"
+            target="_blank">
+            <div class="ccimg"><img src="assets/speaker2.png" /></div>
+          </a>
+          <div class="cdesc">Bridging the Gap Between ML and Finance</div>
+        </div>
+
+        <div class="card">
+          <a href="https://ceoweekly.com/a-remarkable-journey-from-a-small-town-in-india-to-wall-street-and-beyond/"
+            target="_blank">
+            <div class="ccimg"><img src="assets/speaker4.png" /></div>
+          </a>
+          <div class="cdesc">A Remarkable Journey: From a Small Town in India to Wall Street</div>
+        </div>
+
+        <div class="card">
+          <a href="https://aimresearch.co/2023/10/04/adoption-of-ai-gen-ai-in-finance-with-hariom-tatsat/"
+            target="_blank">
+            <div class="ccimg"><img src="assets/Featuredtalk1.jpeg" /></div>
+          </a>
+          <div class="cdesc">Adoption of AI/Gen AI in Finance with Hariom Tatsat
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="https://sanfranciscopost.com/the-future-is-here-how-ai-will-transform-investment-and-asset-allocation/"
+            target="_blank">
+            <div class="ccimg"><img src="assets/speaker3.png" /></div>
+          </a>
+          <div class="cdesc">The Future is Here: How AI Will Transform Investment and Asset Allocation</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div style="/* background-color: #eee; */padding-top: 1px;margin-top: 10px;">
+    <div id="featured-talks" class="container">
+      <div class="ctitle">Podcast Presentations & Conference Keynotes</div>
+      <div class="row">
+
+        <div class="card">
+          <a href="https://open.spotify.com/episode/0qmbifSURd4wVL29mv10gY?si=b33497739d2b4342&nd=1" target="_blank">
+            <div class="ccimg"><img src="assets/podcast.jpeg" /></div>
+          </a>
+          <div class="cdesc">Podcast - Reinforcement Learning in Finance</div>
+        </div>
+
+        <div class="card">
+          <a href="https://aifin.nyc/">
+            <div class="ccimg"><img src="assets/Featuredtalk2.jpeg" target="_blank" /></div>
+          </a>
+          <div class="cdesc">Navigating the Realities of AI in Financial Services
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="https://www.youtube.com/watch?v=X-VjX4Nt0_Q&t=622s" target="_blank">
+            <div class="ccimg"><img src="assets/Featuredtalk4.jpeg" /></div>
+          </a>
+          <div class="cdesc">Webinar on AI and Machine Learning in Finance</div>
+        </div>
+
+        <div class="card">
+          <a href="https://open.spotify.com/episode/6o9KcGXHwkaBuENykDpKKy?si=de471563ad384da2&nd=1" target="_blank">
+            <div class="ccimg"><img src="assets/podcast2.png" /></div>
+          </a>
+          <div class="cdesc">Podcast - Machine Learning in Finance </div>
+        </div>
+
+
+
+        <div class="card">
+          <a href="https://www.datascience.salon/hariom-tatsat/" target="_blank">
+            <div class="ccimg"><img src="assets/Featuredtalk3.jpeg" /></div>
+          </a>
+          <div class="cdesc">Reinforcement Learning Interpretability
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="https://www.youtube.com/watch?v=Jknlz0m13ZM&t=250s" target="_blank">
+            <div class="ccimg"><img src="assets/rein.png" /></div>
+          </a>
+          <div class="cdesc">Reinforcement Learning for trading</div>
+        </div>
+
+        <div class="card">
+          <a href="https://event.on24.com/wcc/r/3344104/CE35F630B804A583BCCCA914AE7E5FB0" target="_blank">
+            <div class="ccimg"><img src="assets/model.png" /></div>
+          </a>
+          <div class="cdesc">Model Risk Management </div>
+        </div>
+
+
+
+        <div class="card">
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:6955158172781191169/" target="_blank">
+            <div class="ccimg"><img src="assets/CQF.jpeg" /></div>
+          </a>
+          <div class="cdesc">CQF Institute Presentation</div>
+        </div>
+
+        <div class="card">
+          <a href="https://www.youtube.com/watch?v=nxu129vN82s&t=163s" target="_blank">
+            <div class="ccimg"><img src="assets/ML.jpeg" /></div>
+          </a>
+          <div class="cdesc">Machine Learning in Finance</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div style="/* background-color: #eee; */padding-top: 1px;margin-top: 10px;" id="one">
+    <div id="featured-talks" class="container">
+      <div class="ctitle">Books & Courses</div>
+      <div class="row">
+        <div class="card">
+          <a href="https://www.amazon.com/Machine-Learning-Science-Blueprints-Finance/dp/1492073059" target="_blank">
+            <div class="ccimg"><img src="assets/book.jpeg" /></div>
+          </a>
+          <div class="cdesc">Co-author of the book published in December 2020 by O'Reilly.
+          </div>
+        </div>
+        <div class="card">
+          <a href="https://lnkd.in/gPb7_apQ" target="_blank">
+            <div class="ccimg"><img src="assets/korean.jpg" /></div>
+          </a>
+          <div class="cdesc">Korean version
+          </div>
+        </div>
+        <div class="card">
+          <a href="https://lnkd.in/g-VAwJ7t" target="_blank">
+            <div class="ccimg"><img src="assets/chinesebook.jpg" /></div>
+          </a>
+          <div class="cdesc">Chinese version
+          </div>
+        </div>
+        <!-- <div class="card">
+          <a href="https://scholar.google.com/citations?user=IU2b2KQAAAAJ&hl=en" target="_blank">
+            <div class="ccimg"><img src="assets/c.png" /></div>
+          </a>
+          <div class="cdesc">Citation
+          </div>
+        </div> -->
+        <div class="card">
+          <a href="https://finmlcourse.thinkific.com/courses/ML" target="_blank">
+            <div class="ccimg"><img src="assets/c1.png" /></div>
+          </a>
+          <div class="cdesc">Machine Learning in Finance
+          </div>
+        </div>
+        <div class="card">
+          <a href="https://finmlcourse.thinkific.com/courses/algo-trading-courses-multiverse" target="_blank">
+            <div class="ccimg"><img src="assets/course2.png" /></div>
+          </a>
+          <div class="cdesc">Algo Trading Courses - Multiverse
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  Awards */ -->
+  <div style="/* background-color: #eee; */padding-top: 1px;margin-top: 10px;" id="one">
+    <div id="featured-talks" class="container">
+      <div class="ctitle">Awards and Judging</div>
+      <div class="row">
+        <div class="card">
+          <a href="https://drive.google.com/file/d/1Cph8GqihmE742pVF5m9mTr6-3TWYvn7r/view" target="_blank">
+            <div class="ccimg"><img src="assets/award1.png" /></div>
+          </a>
+          <div class="cdesc">Indian Achievers Award
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- attempt hiding from spambots :p -->
+  <script type="text/javascript">
+    const rot13 = (message) => {
+      const alpha = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLM';
+      return message.replace(/[a-z]/gi, letter => alpha[alpha.indexOf(letter) + 13]);
+    }
+    var e_is_shown = false;
+    document.getElementById('iemail').addEventListener("click", function () {
+      let demail = document.getElementById('demail');
+      let msg = "hariom_tatsat@mfe.berkeley.edu";
+      demail.innerHTML = rot13(msg);
+      demail.style.opacity = e_is_shown ? 0 : 1;
+      e_is_shown = !e_is_shown;
+    })
+  </script>
 </body>
-<script>
-    var countDownDate = new Date("Jan 24, 2022 00:00:00").getTime();
-    var x = setInterval(function () {
-        var now = new Date().getTime();
-        var distance = countDownDate - now;
-
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("days").innerHTML = days;
-        document.getElementById("hours").innerHTML = hours;
-        document.getElementById("minutes").innerHTML = minutes;
-        document.getElementById("seconds").innerHTML = seconds;
-
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("days").innerHTML = "00";
-            document.getElementById("hours").innerHTML = "00";
-            document.getElementById("minutes").innerHTML = "00";
-            document.getElementById("seconds").innerHTML = "00";
-
-        }
-
-    }, 1000);
-</script>
 
 </html>
